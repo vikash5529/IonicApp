@@ -1,0 +1,23 @@
+<ion-content>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <ion-list inset>
+      <ion-item>
+        <ion-label>Email</ion-label>
+        <ion-input formControlName="email" type="text" value=""></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Password</ion-label>
+        <ion-input
+          formControlName="password"
+          type="password"
+          value=""
+        ></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <div padding>
+      <button type="submit" ion-button color="primary" block>Sign In</button>
+    </div>
+  </form>
+</ion-content>

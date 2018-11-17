@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title> Home Page </ion-title>
+    <ion-buttons end
+      ><button ion-button color="danger" (click)="onLogOut()">
+        LogOut
+      </button></ion-buttons
+    >
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <button ion-button (click)="onAdd()" color="secondary">Add Driver</button>
+  <div *ngIf="showAddForm">
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+      <ion-list inset>
+        <ion-item>
+          <ion-label>First Name</ion-label>
+          <ion-input formControlName="firstName" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Last Name</ion-label>
+          <ion-input formControlName="lastName" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>DOB</ion-label>
+          <ion-datetime
+            formControlName="dob"
+            displayFormat="MM/DD/YYYY"
+          ></ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-label>Email</ion-label>
+          <ion-input formControlName="email" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Phone Number</ion-label>
+          <ion-input formControlName="phoneNo" type="number"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>License No</ion-label>
+          <ion-input formControlName="licenseNo" type="type"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>License Expiration Date</ion-label>
+          <ion-datetime
+            formControlName="dob"
+            displayFormat="MM/DD/YYYY"
+            formControlName="licenseexpirationDate"
+          ></ion-datetime>
+        </ion-item>
+
+        <div padding>
+          <button type="submit" ion-button color="primary" block>Submit</button>
+        </div>
+      </ion-list>
+    </form>
+  </div>
+
+  <ng-container *ngIf="showusers">
+    <ion-card *ngFor="let user of userData; let i = index">
+      <ion-item>
+        <ion-avatar item-start> <img src="assets/imgs/user.jpg" /> </ion-avatar>
+        <h2>Name:{{ user.firstName }} {{ user.lastName }}</h2>
+        <p>EMail:{{ user.email }}</p>
+      </ion-item>
+
+      <ion-card-content>
+        <p>DOB:{{ user.dob }}</p>
+        <p>Phone No{{ user.phoneNo }}</p>
+        <p>License No{{ user.licenseNo }}</p>
+        <p>License Expiration Date{{ user.licenseexpirationDate }}</p>
+      </ion-card-content>
+
+      <ion-row>
+        <ion-col>
+          <button
+            ion-button
+            (click)="onEdit(i)"
+            color="primary"
+            clear
+            small
+            icon-start
+          >
+            <ion-icon name="edit"></ion-icon>
+            Edit
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ng-container>
+</ion-content>
