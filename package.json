@@ -54,8 +54,8 @@
       "cordova-sqlite-storage": {},
       "cordova-plugin-ionic": {
         "APP_ID": "c29a57bb",
-        "CHANNEL_NAME": "Production",
-        "UPDATE_METHOD": "background"
+        "CHANNEL_NAME": "Master",
+        "UPDATE_METHOD": "auto"
       },
       "cordova-plugin-whitelist": {},
       "cordova-plugin-statusbar": {},
